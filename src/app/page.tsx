@@ -22,7 +22,7 @@ export default function Home() {
       />
 
       {/* HERO */}
-      <h1 className="text-4xl font-bold mb-2">Hi, I'm yufsidi 👋</h1>
+      <h1 className="text-4xl font-bold mb-2">Hi, I&apos;m yufsidi 👋</h1>
       <p className="text-gray-300 text-center max-w-md mb-12">
         aku orang serba bisa, anda minta tolong aku tolongin.
       </p>
@@ -47,7 +47,7 @@ export default function Home() {
 
       {/* CONTACT */}
       <h2 className="text-2xl font-semibold mb-3">Contact</h2>
-      <p className="text-gray-400 mb-4">Let’s build something together!</p>
+      <p className="text-gray-400 mb-4">let's build something together!</p>
       <a
         href="mailto:example@email.com"
         className="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-medium hover:opacity-90 transition"
