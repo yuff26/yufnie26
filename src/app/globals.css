@@ -1,216 +1,81 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* 🌙 Mode gelap */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-/* --- Background utama --- */
-body {
+/* Reset */
+* {
   margin: 0;
   padding: 0;
-  font-family: system-ui, sans-serif;
-  background: none;
-  color: var(--foreground);
-  min-height: 100vh;
-  position: relative;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: white;
   overflow-x: hidden;
 }
 
-/* --- Gambar background gunung --- */
-/* --- Background tajam lembut dengan efek gradasi --- */
-body::before {
-  content: "";
+/* Navbar */
+nav {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background:
-    linear-gradient(
-      rgba(255, 255, 255, 0.25),
-      rgba(255, 255, 255, 0.25)
-    ),
-    url("/background.png") no-repeat center center fixed;
-  background-size: cover;
-  z-index: -1;
-  filter: brightness(1.15) contrast(1.15) saturate(1.2);
-}
-
-/* --- Efek frosted glass pada kartu utama --- */
-.card {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(18px) saturate(1.5);
-  -webkit-backdrop-filter: blur(18px) saturate(1.5);
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-  text-align: center;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
-}
-
-/* --- Efek halus untuk teks dan ikon --- */
-.card h1 {
-  font-size: 2rem;
-  color: #111;
-}
-
-.card p {
-  color: #222;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-/* --- Ikon skill lebih rapi dan hidup --- */
-.skills {
+  backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
-  gap: 1.2rem;
-  margin-top: 1rem;
+  align-items: center;
+  gap: 2rem;
+  padding: 0.8rem 2rem;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.skills img {
-  width: 50px;
-  height: 50px;
-  transition: transform 0.3s ease, filter 0.3s ease;
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(1.05); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-fadeIn {
+  animation: fadeIn 1.5s ease-out forwards;
 }
 
-.skills img:hover {
-  transform: scale(1.15);
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
-}
-
-/* --- Foto profil --- */
-.card img {
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  margin-bottom: 1rem;
-}
-
-/* --- Skill icons --- */
-.skills img {
-  width: 40px;
-  height: 40px;
-  margin: 0.5rem;
-}
-
-/* --- Hiasan tambahan --- */
-h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-p {
-  line-height: 1.6;
-  font-size: 1rem;
-}
-
-h3 {
-  margin-top: 1.5rem;
-  font-size: 1.2rem;
-}
-
-.skills {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 0.5rem;
-}
-
-.skills img {
-  width: 50px;
-  height: 50px;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.2));
-}
-
-.skills img:hover {
-  transform: scale(1.2);
-  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
-}
-
-a {
-  color: #0070f3;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* --- Tombol Email Me cantik dan modern --- */
-.card a {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.6rem 1.2rem;
-  background: linear-gradient(135deg, #0070f3, #00c6ff);
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 118, 255, 0.3);
-  transition: all 0.35s ease;
-}
-
-.card a:hover {
-  background: linear-gradient(135deg, #0059d6, #00a3cc);
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 6px 20px rgba(0, 118, 255, 0.5);
-}
-
-/* --- Efek halus saat klik --- */
-.card a:active {
-  transform: scale(0.95);
-  box-shadow: 0 3px 10px rgba(0, 118, 255, 0.3);
-}
-
-/* --- Efek Fade-in untuk seluruh isi card --- */
-@keyframes fadeInUp {
-  0% {
+/* Fade-up animation */
+@keyframes fadeUp {
+  from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
-.card {
-  animation: fadeInUp 1.2s ease-out;
+.animate-fadeUp {
+  animation: fadeUp 1s ease forwards;
 }
 
-/* --- Tambahkan efek lembut untuk elemen di dalam card --- */
-.card img,
-.card h1,
-.card p,
-.card h3,
-.card .skills,
-.card a {
-  opacity: 0;
-  animation: fadeInUp 1s ease-out forwards;
+/* Glow text */
+.glow-text {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-/* Delay agar muncul bergantian */
-.card img { animation-delay: 0.2s; }
-.card h1 { animation-delay: 0.4s; }
-.card p:nth-of-type(1) { animation-delay: 0.6s; }
-.card p:nth-of-type(2) { animation-delay: 0.8s; }
-.card h3 { animation-delay: 1s; }
-.card .skills { animation-delay: 1.2s; }
-.card a { animation-delay: 1.4s; }
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadeUp {
+  animation: fadeUp 1s ease forwards;
+}

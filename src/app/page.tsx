@@ -1,29 +1,70 @@
+"use client";
+
+import Navbar from "../components/Navbar";
+
 export default function Home() {
   return (
-    <main className="main">
-      <div className="card">
-        <img src="/profil.jpg" alt="Foto Profil" />
+    <div
+      style={{
+        backgroundImage: "url('/background.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        minHeight: "100vh",
+        color: "white",
+        textAlign: "center",
+      }}
+    >
+      {/* Navbar selalu tampil di atas */}
+      <Navbar />
 
-        <h1>Hi, I'm Yufsidi 👋</h1>
-        <p>kalau kamu minta tolong dan aku bisa ya,,, aku tolongin 😄</p>
+      {/* Konten utama */}
+      <div style={{ marginTop: "180px" }}>
+        <img
+          src="/profil.jpg"
+          alt="profile"
+          style={{
+            width: "130px",
+            height: "130px",
+            borderRadius: "50%",
+            border: "3px solid white",
+            marginBottom: "1rem",
+            objectFit: "cover",
+          }}
+        />
 
-        <p>
-          Passionate in technology, UI/UX, and education. Currently learning{" "}
-          <strong>Next.js</strong> and building <strong>modern web apps</strong>.
+        <h1 style={{ fontSize: "2rem", fontWeight: "bold" }}>
+          Hi, I'm Yufsidi 👋
+        </h1>
+        <p style={{ maxWidth: "600px", margin: "0 auto", lineHeight: "1.6" }}>
+          Kalau kamu minta tolong dan aku bisa, ya aku bantu 😄
+          <br />
+          Passionate in <strong>technology</strong>, <strong>UI/UX</strong>, and{" "}
+          <strong>education</strong>.
+          <br />
+          Currently learning <strong>Next.js</strong> and building{" "}
+          <strong>modern web apps</strong>.
         </p>
 
-        <div className="skills">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" />
-</div>
-
-        <p style={{ marginTop: "1rem" }}>
-          <a href="mailto:yufsidi@example.com">Email Me</a>
-        </p>
+        <a
+          href="mailto:yufsidi@example.com"
+          style={{
+            display: "inline-block",
+            background: "#007bff",
+            color: "white",
+            padding: "0.6rem 1.2rem",
+            borderRadius: "5px",
+            textDecoration: "none",
+            marginTop: "1rem",
+            transition: "0.3s",
+          }}
+          onMouseEnter={(e) =>
+            (e.currentTarget.style.background = "#0056b3")
+          }
+          onMouseLeave={(e) => (e.currentTarget.style.background = "#007bff")}
+        >
+          Email Me
+        </a>
       </div>
-    </main>
+    </div>
   );
 }
